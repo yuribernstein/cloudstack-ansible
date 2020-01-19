@@ -4,7 +4,12 @@
 # Released by ShapeBlue <info@shapeblue.com>, April 2014
 
 ---
-
+- name: install epel-repo
+  yum: name=epel-release state=preeset update_cache=yes
+  
+- name: add my-sql repo
+  shell: rpm -Uvh https://repo.mysql.com/mysql80-community-release-el7-3.noarch.rpm
+  
 - name: Ensure selinux python bindings are installed (Ansible requirement)
   yum: name=libselinux-python state=present
 
